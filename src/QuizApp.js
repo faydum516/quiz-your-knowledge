@@ -110,7 +110,7 @@ function QuizApp() {
         {(resultDisplay && current > indexLength) && 
           <>
             <button type="button" className="review-btn" id="ReviewButton" onClick={reviewClick}>Review Quiz</button>
-            <a href="quiz_your_knowledge.html"><button className="restart-btn" id="RestartButton">Restart Quiz</button></a>
+            <a href="https://faydum516.github.io/quiz-your-knowledge"><button className="restart-btn" id="RestartButton">Restart Quiz</button></a>
           </>
         }
         {correctAnswerDisplay && <button type="button" className="backToResults-btn" id="BackToResultsButton" onClick={backToResults}>Back to Results</button>}
