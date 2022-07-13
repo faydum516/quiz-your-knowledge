@@ -93,6 +93,10 @@ function QuizApp() {
     setCorrAnsDisplay(true);
   }
 
+  const restartClick = () => {
+    window.location.reload(); // Restarting the quiz
+  }
+
   const backToResults = () => {
     setResultDisplay(true);
     setCorrAnsDisplay(false);
@@ -110,7 +114,7 @@ function QuizApp() {
         {(resultDisplay && current > indexLength) && 
           <>
             <button type="button" className="review-btn" id="ReviewButton" onClick={reviewClick}>Review Quiz</button>
-            <a href="https://faydum516.github.io/quiz-your-knowledge"><button className="restart-btn" id="RestartButton">Restart Quiz</button></a>
+            <button type="button" className="restart-btn" id="RestartButton" onClick={restartClick}>Restart Quiz</button>
           </>
         }
         {correctAnswerDisplay && <button type="button" className="backToResults-btn" id="BackToResultsButton" onClick={backToResults}>Back to Results</button>}
