@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap');
+
+.Header {
+    margin: 15px; 
+}
+
+@media screen and (max-width: 500px) {
+    .Header {
+      font-size: 0.65em;
+    }
+}

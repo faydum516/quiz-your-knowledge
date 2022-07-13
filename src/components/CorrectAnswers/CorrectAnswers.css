@@ -1,0 +1,62 @@
+.CorrectedQuiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.arrows {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.arrow {
+    font-size: 1.375em;
+    color: #302f2f;    
+    transition: box-shadow 0.25s ease-in;
+    -webkit-transition: box-shadow 0.25s ease-in;
+    -o-transition: box-shadow 0.25s ease-in;
+    -moz-transition: box-shadow 0.25s ease-in;
+}
+.arrow:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #302f2f;
+}
+.answer-note {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.answer-mark {
+    margin-right: 5px;
+}
+.right-mark {
+    color: rgb(58, 167, 73);
+}
+.wrong-mark {
+    color: rgb(182, 17, 17);
+}
+.correct-incorrect > input[type="radio"] {
+    opacity: 0;
+}
+.correct-incorrect > input[type="radio"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 1rem; /* 1rem = 16px */
+    height: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: #8e8ea3;
+}
+.correct-incorrect > input[type="radio"]:checked + *::before {
+    background: radial-gradient(rgb(48, 141, 71) 0%, rgb(48, 141, 71) 40%, transparent 50%, transparent);
+    border-color: rgb(48, 141, 71); 
+} 
+.correct-incorrect > input[type="radio"]:checked + * {
+    color: rgb(48, 141, 71);
+}
