@@ -107,9 +107,13 @@ function QuizApp() {
       <div className="buttons" id="BTNs">
         {current < indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>{startSubmitButtonText}</button>}
         {current === indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>Submit & Finish</button>}
-        {(resultDisplay && current > indexLength) && <button type="button" className="review-btn" id="ReviewButton" onClick={reviewClick}>Review Quiz</button>}
+        {(resultDisplay && current > indexLength) && 
+          <>
+            <button type="button" className="review-btn" id="ReviewButton" onClick={reviewClick}>Review Quiz</button>
+            <a href="quiz_your_knowledge.html"><button className="restart-btn" id="RestartButton">Restart Quiz</button></a>
+          </>
+        }
         {correctAnswerDisplay && <button type="button" className="backToResults-btn" id="BackToResultsButton" onClick={backToResults}>Back to Results</button>}
-        {/*<a href="quiz_your_knowledge.html" style={{textDecoration: "none"}}><button className="restart-btn" id="RestartButton">Restart Quiz</button></a> */}
       </div>
     </div>
   );

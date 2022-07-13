@@ -1,6 +1,6 @@
 {
   "homepage": "https://faydum516.github.io/quiz-your-knowledge",
-  "name": "quiz-your-knowledge-frontend",
+  "name": "quiz-app-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
