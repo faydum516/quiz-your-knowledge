@@ -10,7 +10,7 @@
 .result-input {
     background-color: initial;
     border-color: initial; 
-    color: rgba(0, 0, 0, 0.75);
+    color: rgba(0, 0, 0, 0.84375);
     border: 0;
     margin: 5px 0;
     font-size: 0.90625em;
@@ -21,4 +21,10 @@
 .result-note {
     text-align: center;
     margin: 15px 0 7.5px 0;
+}
+
+@media screen and (max-width: 500px) {
+    .quiz-results {
+        width: 337.5px;
+    }
 }
