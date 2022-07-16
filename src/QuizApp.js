@@ -110,7 +110,7 @@ function QuizApp() {
     <div className="QuizApp">
       <Header display={headerDisplay} />
       <Quiz questions={quizQuestions} currentIndex={current} progressWidth={progressWidth} time={time} display={quizDisplay} /> 
-      <Result questions={quizQuestions} currentIndex={current} score={score} display={resultDisplay} />
+      <Result questions={quizQuestions} score={score} display={resultDisplay} />
       <CorrectAnswers questions={quizQuestions} corrections={correctArr} display={correctAnswerDisplay} />
       <div className="buttons" id="BTNs">
         {current < indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>{startSubmitButtonText}</button>}

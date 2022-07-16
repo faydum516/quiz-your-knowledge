@@ -1,7 +1,6 @@
 import './Result.css';
 
-function Result({questions, currentIndex, score, display}) {
-    // return ((display && currentIndex > (questions.length - 1)) &&
+function Result({questions, score, display}) {
     return (display &&
         <fieldset className="quiz-results">
             <legend style={{fontSize: "1.0625em", fontWeight: "700"}}>Quiz Results</legend>
