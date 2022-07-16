@@ -1,5 +1,4 @@
-// import logo from './logo.svg';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './QuizApp.css';
 import Header from './components/Header/Header.js';
 import Quiz from './components/Quiz/Quiz.js';
@@ -18,7 +17,7 @@ function QuizApp() {
   const [buttonStyle, setButtonStyle] = useState({});
 
   // Results' display
-  const [resultDisplay, setResultDisplay] = useState(true);
+  const [resultDisplay, setResultDisplay] = useState(false);
 
   // Current index, progress bar's width, timer bar's width & quiz score
   const [current, setCurrent] = useState(0); // current refers the current index.
@@ -28,7 +27,6 @@ function QuizApp() {
 
   // Time interval 
   const [timeInterval, setTimeInterval] = useState(0); 
-  let timeDrop;
 
   // Showing correct answers
   const [correctArr, setCorrectArr] = useState([]);
@@ -36,23 +34,29 @@ function QuizApp() {
 
   const indexLength = quizQuestions.length - 1; // indexLength refers to the number of indexes.
 
+  useEffect(() => {
+    if (time === 0) {
+      setTime(100);
+      setCurrent(current + 1);
+      setProgressWidth(progressWidth + 10);
+      setCorrectArr([...correctArr, false]);
+    }
+    if (current > indexLength) {
+      clearInterval(timeInterval);
+      setQuizDisplay(false);
+      setResultDisplay(true);
+    }
+  }, [current, indexLength, timeInterval, time, progressWidth, correctArr]);
+
   const startSubmitClick = (event) => {
     if (timeInterval) {
       clearInterval(timeInterval);
     }
     setTime(100);
-    timeDrop = 0;
 
-    if (current !== indexLength) {
+    if (current < indexLength) {
       const newTimeInterval = setInterval(() => {
-        timeDrop++;
-        if (timeDrop === 10) {
-          setCurrent(currentIndex => currentIndex + 1);
-          setProgressWidth(progressWidth => progressWidth + 10);
-          setCorrectArr(correctArr => [...correctArr, false]);
-          timeDrop = 0;
-        }
-        setTime(currentTime => currentTime === 10 ? 100 : currentTime - 10);
+        setTime(currentTime => currentTime - 10);
       }, 6000);
       setTimeInterval(newTimeInterval);
     }
@@ -111,7 +115,7 @@ function QuizApp() {
       <div className="buttons" id="BTNs">
         {current < indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>{startSubmitButtonText}</button>}
         {current === indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>Submit & Finish</button>}
-        {(resultDisplay && current > indexLength) && 
+        {resultDisplay && 
           <>
             <button type="button" className="review-btn" id="ReviewButton" onClick={reviewClick}>Review Quiz</button>
             <button type="button" className="restart-btn" id="RestartButton" onClick={restartClick}>Restart Quiz</button>
