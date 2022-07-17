@@ -49,12 +49,13 @@ function QuizApp() {
   }, [current, indexLength, timeInterval, time, progressWidth, correctArr]);
 
   const startSubmitClick = (event) => {
-    if (timeInterval) {
-      clearInterval(timeInterval);
-    }
+
     setTime(100);
 
     if (current < indexLength) {
+      if (timeInterval) {
+        clearInterval(timeInterval);
+      }
       const newTimeInterval = setInterval(() => {
         setTime(currentTime => currentTime - 10);
       }, 6000);

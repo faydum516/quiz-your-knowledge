@@ -5,7 +5,7 @@ function Quiz({questions, currentIndex, progressWidth, time, display}) {
 
     const [currentChoice, setCurrentChoice] = useState("");
 
-    return ((currentIndex <= (questions.length - 1) && display) &&
+    return ((currentIndex < questions.length && display) &&
         <div className="Quiz">
             <div className="timer-container">
                 <div className="timer-bar" style={{width: `${time}%`}}></div>
