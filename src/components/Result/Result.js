@@ -1,6 +1,13 @@
 import './Result.css';
 
 function Result({questions, score, display}) {
+
+    const resultNote = score === 10 ? "You got a perfect score, congrats!" : 
+        score >= 8 && score < 10 ? "You did very well on the quiz, good job!" :
+        score === 7 ? "You did fine on the quiz." :
+        score === 6 ? "You barely passed." :
+        "You didn't pass the quiz, better luck next time.";
+
     return (display &&
         <fieldset className="quiz-results">
             <legend style={{fontSize: "1.0625em", fontWeight: "700"}}>Quiz Results</legend>
@@ -10,7 +17,7 @@ function Result({questions, score, display}) {
             </div> 
             <div className="quiz-result">
                 <label htmlFor="num-questions">Total Number of Questions: </label>
-                <input className="result-input" type="text" id="NumQuestions" name="num-questions" value={questions.length}disabled />
+                <input className="result-input" type="text" id="NumQuestions" name="num-questions" value={questions.length} disabled />
             </div>         
             <div className="quiz-result">
                 <label htmlFor="passing-score">Passing Score: </label>
@@ -20,6 +27,7 @@ function Result({questions, score, display}) {
                 <label htmlFor="score">Score: </label>
                 <input className="result-input" type="text" id="QuizScore" name="score" value={`${score / questions.length * 100}% (${score}/${questions.length})`} disabled />
             </div>
+            <p className="result-note">{resultNote}</p>
         </fieldset>
     );
 }

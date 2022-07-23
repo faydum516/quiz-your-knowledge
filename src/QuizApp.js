@@ -41,6 +41,9 @@ function QuizApp() {
       setProgressWidth(progressWidth + 10);
       setCorrectArr([...correctArr, false]);
     }
+    if (current === indexLength) {
+      setButtonText("Submit & Finish");
+    }
     if (current > indexLength) {
       clearInterval(timeInterval);
       setQuizDisplay(false);
@@ -114,8 +117,7 @@ function QuizApp() {
       <Result questions={quizQuestions} score={score} display={resultDisplay} />
       <CorrectAnswers questions={quizQuestions} corrections={correctArr} display={correctAnswerDisplay} />
       <div className="buttons" id="BTNs">
-        {current < indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>{startSubmitButtonText}</button>}
-        {current === indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>Submit & Finish</button>}
+        {current <= indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>{startSubmitButtonText}</button>}
         {resultDisplay && 
           <>
             <button type="button" className="review-btn" id="ReviewButton" onClick={reviewClick}>Review Quiz</button>
