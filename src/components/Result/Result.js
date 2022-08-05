@@ -20,7 +20,7 @@ function Result({questions, score, display}) {
                     <td>{score}</td>
                 </tr>
                 <tr>
-                    <td>Total Number of Questions</td>
+                    <td>Total Number of Questions:</td>
                     <td>{questions.length}</td>
                 </tr>
                 <tr>
