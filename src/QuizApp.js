@@ -21,12 +21,13 @@ function QuizApp() {
 
   // Current index, progress bar's width, timer bar's width & quiz score
   const [current, setCurrent] = useState(0); // current refers the current index.
-  const [progressWidth, setProgressWidth] = useState(10);
-  const [time, setTime] = useState(100);
+  const [timeWidth, setTimeWidth] = useState(100);
+  const [seconds, setSeconds] = useState(60); // You start each question with 60 seconds.
   const [score, setScore] = useState(0);
 
   // Time interval 
   const [timeInterval, setTimeInterval] = useState(0); 
+  const [secondInterval, setSecondInterval] = useState(0);
 
   // Showing correct answers
   const [correctArr, setCorrectArr] = useState([]);
@@ -35,10 +36,10 @@ function QuizApp() {
   const indexLength = quizQuestions.length - 1; // indexLength refers to the number of indexes.
 
   useEffect(() => {
-    if (time === 0) {
-      setTime(100);
+    if (timeWidth === 0 && seconds === 0) {
+      setTimeWidth(100);
+      setSeconds(60);
       setCurrent(current + 1);
-      setProgressWidth(progressWidth + 10);
       setCorrectArr([...correctArr, false]);
     }
     if (current === indexLength) {
@@ -46,23 +47,32 @@ function QuizApp() {
     }
     if (current > indexLength) {
       clearInterval(timeInterval);
+      clearInterval(secondInterval);
       setQuizDisplay(false);
       setResultDisplay(true);
     }
-  }, [current, indexLength, timeInterval, time, progressWidth, correctArr]);
+  }, [current, indexLength, timeInterval, secondInterval, timeWidth, seconds, correctArr]);
 
   const startSubmitClick = (event) => {
 
-    setTime(100);
+    setTimeWidth(100);
+    setSeconds(60);
 
     if (current < indexLength) {
       if (timeInterval) {
         clearInterval(timeInterval);
       }
+      if (secondInterval) {
+        clearInterval(secondInterval);
+      }
       const newTimeInterval = setInterval(() => {
-        setTime(currentTime => currentTime - 10);
+        setTimeWidth(currTimeWidth => currTimeWidth - 10);
       }, 6000);
       setTimeInterval(newTimeInterval);
+      const newSecondInterval = setInterval(() => {
+        setSeconds(seconds => seconds - 1);
+      }, 1000)
+      setSecondInterval(newSecondInterval);
     }
 
     if (headerDisplay) {
@@ -73,7 +83,6 @@ function QuizApp() {
     }
 
     if (quizDisplay) {
-      setProgressWidth(progressWidth + 10);
       setCurrent(current + 1);
 
       var answerInput = document.getElementsByName(`question${current + 1}`);
@@ -113,14 +122,14 @@ function QuizApp() {
   return (
     <div className="QuizApp">
       <Header display={headerDisplay} />
-      <Quiz questions={quizQuestions} currentIndex={current} progressWidth={progressWidth} time={time} display={quizDisplay} /> 
+      <Quiz questions={quizQuestions} currentIndex={current} timeWidth={timeWidth} time={seconds} display={quizDisplay} /> 
       <Result questions={quizQuestions} score={score} display={resultDisplay} />
       <CorrectAnswers questions={quizQuestions} corrections={correctArr} display={correctAnswerDisplay} />
-      <div className="buttons" id="BTNs">
+      <div className="Buttons">
         {current <= indexLength && <button type="button" className="start-submit-finish-btn" style={buttonStyle} onClick={startSubmitClick}>{startSubmitButtonText}</button>}
         {resultDisplay && 
           <>
-            <button type="button" className="review-btn" id="ReviewButton" onClick={reviewClick}>Review Quiz</button>
+            <button type="button" className="review-btn" onClick={reviewClick}>Review Quiz</button>
             <button type="button" className="restart-btn" id="RestartButton" onClick={restartClick}>Restart Quiz</button>
           </>
         }

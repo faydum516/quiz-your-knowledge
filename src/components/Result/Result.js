@@ -8,27 +8,33 @@ function Result({questions, score, display}) {
         score === 6 ? "You barely passed." :
         "You didn't pass the quiz, better luck next time.";
 
+    const resultHeaderStyle = {fontSize: "1.0625em", fontWeight: "700", textAlign: "center", margin: "10px 0 15px 0"};
+
     return (display &&
-        <fieldset className="quiz-results">
-            <legend style={{fontSize: "1.0625em", fontWeight: "700"}}>Quiz Results</legend>
-            <div className="quiz-result">
-                <label htmlFor="correct-answers">Number of Correct Answers: </label>
-                <input className="result-input"  type="text" id="CorrectAnswers" name="correct-answers" value={score} disabled />
-            </div> 
-            <div className="quiz-result">
-                <label htmlFor="num-questions">Total Number of Questions: </label>
-                <input className="result-input" type="text" id="NumQuestions" name="num-questions" value={questions.length} disabled />
-            </div>         
-            <div className="quiz-result">
-                <label htmlFor="passing-score">Passing Score: </label>
-                <input className="result-input"  type="text" id="PassingScore" name="passing-score" value="60% (6/10)" disabled />
-            </div> 
-            <div className="quiz-result">
-                <label htmlFor="score">Score: </label>
-                <input className="result-input" type="text" id="QuizScore" name="score" value={`${score / questions.length * 100}% (${score}/${questions.length})`} disabled />
-            </div>
-            <p className="result-note">{resultNote}</p>
-        </fieldset>
+        <div className="QuizResults">
+            <h6 style={resultHeaderStyle}>Quiz Results</h6>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Number of Correct Answers:</td>
+                    <td>{score}</td>
+                </tr>
+                <tr>
+                    <td>Total Number of Questions</td>
+                    <td>{questions.length}</td>
+                </tr>
+                <tr>
+                    <td>Passing Score:</td>
+                    <td>60% (6/10)</td>
+                </tr>
+                <tr>
+                    <td>Score:</td>
+                    <td>{score / questions.length * 100}% ({score}/{questions.length})</td>
+                </tr>
+                </tbody>
+            </table>
+            <p className="result-note">{resultNote}</p> 
+        </div>
     );
 }
 

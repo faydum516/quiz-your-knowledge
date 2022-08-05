@@ -1,29 +1,29 @@
 import { useState } from 'react';
 import './Quiz.css';
 
-function Quiz({questions, currentIndex, progressWidth, time, display}) {
+function Quiz({questions, currentIndex, timeWidth, time, display}) {
 
     const [currentChoice, setCurrentChoice] = useState("");
 
+    const minutes = Math.floor(time % 3600 / 60);
+    const formatMinutes = minutes >= 10 ? `${minutes}` : `0${minutes}`;
+    const seconds = Math.floor(time % 60);
+    const formatSeconds = seconds >= 10 ? `${seconds}` : `0${seconds}`;
+
     return ((currentIndex < questions.length && display) &&
         <div className="Quiz">
-            <div className="timer-container">
-                <div className="timer-bar" style={{width: `${time}%`}}></div>
+            <div className="quiz-header">
+                <p>{`Question ${currentIndex + 1} of ${questions.length}`}</p>
+                <p className="seconds">Time: {`${formatMinutes}:${formatSeconds}`}</p>
             </div>
-            <div className="quiz-progress">
-                <div className="quiz-progress-container">
-                    <div className="quiz-progress-bar" style={{width: `${progressWidth}%`}}></div>
-                </div>
-                <div className="progress-minmax">
-                    <p className="progress-minvalue">0</p>
-                    <p className="progress-maxvalue">100</p>
-                </div>
+            <div className="timer-container">
+                <div className="timer-bar" style={{width: `${timeWidth}%`}}></div>
             </div>
             <form className="quiz-form">
                 {questions.map((obj, index) => {
                     return ((index === currentIndex) &&
                         <div className="question" key={`question${index + 1}`}>
-                            <label className="questionLabel" htmlFor={`question${index + 1}`}>{`Q${index + 1}) ${obj.question}`}</label>
+                            <label className="questionLabel" htmlFor={`question${index + 1}`}>{`${index + 1}) ${obj.question}`}</label>
                             <div className="radios">
                                 {obj.multipleChoices.map(choice => {
                                     return (
@@ -43,7 +43,7 @@ function Quiz({questions, currentIndex, progressWidth, time, display}) {
                         </div>
                     );
                 })}
-            </form>
+            </form>            
         </div>
     );
 }

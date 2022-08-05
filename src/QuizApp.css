@@ -3,10 +3,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #00000070;
 }
 
-.start-submit-finish-btn, .submit-and-finish-btn, .review-btn, .restart-btn, .backToResults-btn {
+.start-submit-finish-btn, .review-btn, .restart-btn, .backToResults-btn {
   padding: 5px;
   border-radius: 5px;
   background-color: hsl(189, 86%, 38%);
@@ -30,12 +32,19 @@
   cursor: pointer;
   box-shadow: 0 0 10px 0 hsl(189, 86%, 38%);
 }
-.buttons {
+.Buttons {
   display: flex;
+  margin-bottom: 25px;
 }
 
-@media screen and (max-width: 500px){
-  .buttons {
+@media screen and (max-width: 950px){
+  .Buttons {
     font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .Buttons {
+    margin-bottom: 18.75px;
   }
 }
