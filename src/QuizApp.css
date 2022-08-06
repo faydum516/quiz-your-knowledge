@@ -26,6 +26,8 @@
 }
 .review-btn, .restart-btn, .backToResults-btn {
   font-size: 0.875em;
+}
+.review-btn, .restart-btn {
   margin: 0 7.5px;
 }
 .start-submit-finish-btn:hover, .review-btn:hover, .restart-btn:hover, .backToResults-btn:hover {
