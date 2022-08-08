@@ -16,20 +16,20 @@ function Result({questions, score, display}) {
             <table>
                 <tbody>
                 <tr>
-                    <td>Number of Correct Answers:</td>
-                    <td>{score}</td>
+                    <td className="left-cell">Number of Correct Answers:</td>
+                    <td className="right-cell">{score}</td>
                 </tr>
                 <tr>
-                    <td>Total Number of Questions:</td>
-                    <td>{questions.length}</td>
+                    <td className="left-cell">Total Number of Questions:</td>
+                    <td className="right-cell">{questions.length}</td>
                 </tr>
                 <tr>
-                    <td>Passing Score:</td>
-                    <td>60% (6/10)</td>
+                    <td className="left-cell">Passing Score:</td>
+                    <td className="right-cell">60% (6/10)</td>
                 </tr>
                 <tr>
-                    <td>Score:</td>
-                    <td>{score / questions.length * 100}% ({score}/{questions.length})</td>
+                    <td className="left-cell">Score:</td>
+                    <td className="right-cell">{score / questions.length * 100}% ({score}/{questions.length})</td>
                 </tr>
                 </tbody>
             </table>
