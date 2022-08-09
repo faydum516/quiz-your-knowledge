@@ -28,7 +28,10 @@
 
 @media screen and (max-width: 450px) {
     .QuizResults {
-        font-size: 0.8125em;
+        font-size: 0.84375em;
         width: 300px;
+    }
+    .right-cell {
+        text-indent: 12px;
     }
 }
