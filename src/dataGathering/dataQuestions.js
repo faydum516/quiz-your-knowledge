@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const quizQuestions = Array(10);
 
-axios.get('https://quiz-your-knowledge-backend.herokuapp.com/v2/posts')
+axios.get('https://quiz-your-knowledge-backend.onrender.com/v2/posts')
     .then(response => {
         for (let i = 0; i < 10; i++) {
             let randomIndex = Math.floor((Math.random() * response.data.length)); // An index number is selected randomly.
