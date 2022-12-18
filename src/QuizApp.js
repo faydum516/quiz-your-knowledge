@@ -92,12 +92,11 @@ function QuizApp() {
           if (answerInput[i].checked) {
             setScore(score + 1);
             setCorrectArr([...correctArr, true]);
-            break;
           }
           else {
             setCorrectArr([...correctArr, false]);
-            break;
           }
+          break;
         } 
       }
     }
