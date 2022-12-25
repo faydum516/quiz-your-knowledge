@@ -1,18 +1,17 @@
-body {
+body, html {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(28, 26, 146, 0.877);
   height: 100vh;
+  background-image: url("low-poly-grid-haikei.png");
+  background-attachment: fixed;
+  background-size: cover;
+}
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
