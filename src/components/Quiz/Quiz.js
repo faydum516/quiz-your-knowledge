@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Quiz.css';
 
 function Quiz({questions, currentIndex, timeWidth, time, display}) {
 
     const [currentChoice, setCurrentChoice] = useState("");
+
+    useEffect(() => {
+        setCurrentChoice("");
+    }, [currentIndex]);
 
     const minutes = Math.floor(time % 3600 / 60);
     const formatMinutes = minutes >= 10 ? `${minutes}` : `0${minutes}`;
