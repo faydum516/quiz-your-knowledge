@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/quiz-your-knowledge/static/css/main.c00c0217.css",
-    "main.js": "/quiz-your-knowledge/static/js/main.be2a90fc.js",
+    "main.js": "/quiz-your-knowledge/static/js/main.2b649c16.js",
     "static/js/787.aa1b1204.chunk.js": "/quiz-your-knowledge/static/js/787.aa1b1204.chunk.js",
     "static/media/low-poly-grid-haikei.png": "/quiz-your-knowledge/static/media/low-poly-grid-haikei.bac2a39f2fd84a7a868a.png",
     "index.html": "/quiz-your-knowledge/index.html",
     "main.c00c0217.css.map": "/quiz-your-knowledge/static/css/main.c00c0217.css.map",
-    "main.be2a90fc.js.map": "/quiz-your-knowledge/static/js/main.be2a90fc.js.map",
+    "main.2b649c16.js.map": "/quiz-your-knowledge/static/js/main.2b649c16.js.map",
     "787.aa1b1204.chunk.js.map": "/quiz-your-knowledge/static/js/787.aa1b1204.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c00c0217.css",
-    "static/js/main.be2a90fc.js"
+    "static/js/main.2b649c16.js"
   ]
 }
